@@ -1,0 +1,13 @@
+{
+  "name": "@rules-generator/eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./next": "./eslint-next.js",
+    "./prettier": "./prettier.config.cjs"
+  },
+  "peerDependencies": {
+    "eslint": ">=8",
+    "prettier": ">=3"
+  }
+}
