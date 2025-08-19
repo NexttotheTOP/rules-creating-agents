@@ -23,4 +23,10 @@ workflow.add_edge("prd_analysis", END)
 app = workflow.compile()
 
 if __name__ == "__main__":
-    asyncio.run(app.ainvoke({"user_input": "I want to build a web app that allows users to create and manage their own projects."}))
+    asyncio.run(
+        app.ainvoke(
+            {
+                "user_input": "I want to build a web app that allows users to create and manage their own projects."
+            }
+        )
+    )

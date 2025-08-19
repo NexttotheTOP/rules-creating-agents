@@ -1,4 +1,5 @@
 """Supabase client initialization."""
+
 from dotenv import load_dotenv
 import os
 from supabase import create_client, Client

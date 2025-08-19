@@ -1,4 +1,5 @@
 """Entrypoint for the FastAPI application."""
+
 import logging
 import uvicorn
 from fastapi import FastAPI

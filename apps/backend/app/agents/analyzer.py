@@ -15,36 +15,29 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 # Building Context Info
 # ------------------------------------------------------------
 
-def build_context_info(prd_text: str) -> str:   
+
+def build_context_info(prd_text: str) -> str:
     """Build context information for the PRD analysis."""
-    return 
+    return
+
 
 # ------------------------------------------------------------
 # PRD Analysis Agent
 # ------------------------------------------------------------
 
+
 class PRDAnalysisAgent:
     """Agent that analyzes PRD text and extracts key features, tasks, and considerations."""
 
     def __init__(self):
-        self.llm = ChatOpenAI(
-            model="gpt-4o-mini",    
-            temperature=1, 
-            streaming=True
-        )
+        self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=1, streaming=True)
         self.logger = logging.getLogger(__name__)
 
-    async def analyze_prd(
-            self, 
-            state: GraphState
-    ) -> AsyncGenerator[Dict[str, Any], None]:
+    async def analyze_prd(self, state: GraphState) -> AsyncGenerator[Dict[str, Any], None]:
         """Agent that analyzes PRD text and extracts key features, tasks, and considerations."""
         self.logger.info("Starting PRD analysis")
         prd_text = state["user_input"]
-        messages = [
-            SystemMessage(content=PRD_ANALYSIS_PROMPT),
-            HumanMessage(content=prd_text)
-        ]
+        messages = [SystemMessage(content=PRD_ANALYSIS_PROMPT), HumanMessage(content=prd_text)]
         async for chunk in self.llm.astream(messages):
             token = chunk.content if hasattr(chunk, "content") else str(chunk)
             yield {"visualization": token}
