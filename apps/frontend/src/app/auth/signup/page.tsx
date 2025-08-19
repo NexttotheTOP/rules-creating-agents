@@ -16,7 +16,9 @@ export default function SignupPage() {
         <h1 className="text-3xl font-semibold text-center mb-6">Create an Account</h1>
         <form className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email address
+            </label>
             <Input
               id="email"
               type="email"
@@ -27,7 +29,9 @@ export default function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
             <Input
               id="password"
               type="password"
@@ -38,7 +42,9 @@ export default function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              Confirm Password
+            </label>
             <Input
               id="confirmPassword"
               type="password"

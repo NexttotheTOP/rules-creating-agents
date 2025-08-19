@@ -10,21 +10,20 @@ import { supabase } from '@/lib/supabaseClient';
  * PRD rich-text editor component with TipTap.
  * Supports basic formatting, links, images, and file uploads to Supabase Storage.
  */
-export const PRDEditor = ({ initialContent = '', onChange }: {
+export const PRDEditor = ({
+  initialContent = '',
+  onChange,
+}: {
   initialContent?: string;
   onChange?: (html: string) => void;
 }) => {
   const editor = useEditor({
     immediatelyRender: false, // disable SSR rendering to avoid hydration mismatches
-    extensions: [
-      StarterKit,
-      Link.configure({ openOnClick: false }),
-      Image
-    ],
+    extensions: [StarterKit, Link.configure({ openOnClick: false }), Image],
     content: initialContent,
     onUpdate: ({ editor }) => {
       onChange?.(editor.getHTML());
-    }
+    },
   });
 
   const uploadFile = useCallback(async (file: File) => {
@@ -53,7 +52,9 @@ export const PRDEditor = ({ initialContent = '', onChange }: {
       editor.chain().focus().setImage({ src: url }).run();
     } else {
       // Insert a link to non-image files
-      editor.chain().focus()
+      editor
+        .chain()
+        .focus()
         .extendMarkRange('link')
         .setLink({ href: url })
         .insertContent(file.name)
@@ -69,31 +70,35 @@ export const PRDEditor = ({ initialContent = '', onChange }: {
           type="button"
           onClick={() => editor?.chain().focus().toggleBold().run()}
           className="px-2 py-1 border rounded hover:bg-gray-200"
-        >Bold</button>
+        >
+          Bold
+        </button>
         <button
           type="button"
           onClick={() => editor?.chain().focus().toggleItalic().run()}
           className="px-2 py-1 border rounded hover:bg-gray-200"
-        >Italic</button>
+        >
+          Italic
+        </button>
         <button
           type="button"
           onClick={() => editor?.chain().focus().toggleBulletList().run()}
           className="px-2 py-1 border rounded hover:bg-gray-200"
-        >Bullet List</button>
+        >
+          Bullet List
+        </button>
         <button
           type="button"
           onClick={() => editor?.chain().focus().toggleOrderedList().run()}
           className="px-2 py-1 border rounded hover:bg-gray-200"
-        >Numbered List</button>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="ml-auto"
-        />
+        >
+          Numbered List
+        </button>
+        <input type="file" onChange={handleFileChange} className="ml-auto" />
       </div>
       <EditorContent editor={editor} className="min-h-[300px]" />
     </div>
-);
+  );
 };
 
 export default PRDEditor;
