@@ -40,7 +40,7 @@
 - **Tailwind CSS** – Utility-first styling, fast prototyping  
   Docs: https://tailwindcss.com/docs
 - **shadcn/ui** – Accessible, headless UI primitives  
-  Docs: https://ui.shadcn.com/
+  Docs: https://ui.shadcn.com/docs 
 
 ### Backend
 - **LangChain + LangGraph (Python)** – Composable LLM chains and stateful graphs  
@@ -65,28 +65,30 @@
 
 ## Implementation Stages
 
-### Stage 1: Foundation & Setup
+### Stage 1: Foundation & Setup [completed]
 **Duration:** 2 weeks  
 **Dependencies:** None
 
 #### Sub-steps
-- [ ] Set up monorepo (pnpm workspaces) containing `apps/frontend` and `apps/backend`
-- [ ] Configure TypeScript (frontend) and Python (backend) linting & formatting (ESLint, Prettier, Ruff, Black)
-- [ ] Initialize GitHub repository with conventional commits & branch protection
-- [ ] Provision Supabase project; create Auth settings and initial schema (`users`, `generations`)
-- [ ] Scaffold Next.js app with Tailwind & shadcn/ui; set up absolute import aliases
-- [ ] Scaffold FastAPI service; add LangChain, LangGraph, Pydantic, Uvicorn
-- [ ] Implement basic email/password auth flow; store JWT in secure http-only cookies
-- [ ] Add Dockerfiles and docker-compose for local development
-- [ ] Configure GitHub Actions workflows for test & preview deployments
-- [ ] Draft initial engineering documentation (README, Coding Standards)
+- [done] Set up monorepo (pnpm workspaces) containing `apps/frontend` and `apps/backend`
+- [done] Configure TypeScript (frontend) and Python (backend) linting & formatting (ESLint, Prettier, Ruff, Black)
+- [done] Initialize GitHub repository with conventional commits & branch protection
+- [done] Provision Supabase project; create Auth settings and initial schema (`users`, `generations`)
+- [done] Scaffold Next.js app with Tailwind & shadcn/ui; set up absolute import aliases
+- [done] Scaffold FastAPI service; add LangChain, LangGraph, Pydantic, Uvicorn
+- [done] Implement basic email/password auth flow; store JWT in secure http-only cookies
+- [done] Add Dockerfiles and docker-compose for local development
+- [done] Configure GitHub Actions workflows for test & preview deployments
+- [done] Draft initial engineering documentation (README, Coding Standards)
 
 ### Stage 2: Core Features
 **Duration:** 4 weeks  
-**Dependencies:** Stage 1 completion
+**Dependencies:** Stage 1 completion 
 
 #### Sub-steps
-- [ ] Build rich-text PRD editor using `@tiptap/react`; integrate Supabase Storage for file uploads
+- [done] Build a basic text or file upload page using `@shadcn/ui`; setup Supabase Storage connection for file uploads (no auth and RLS yet)
+- [ ] setup modern and functional login and signup pages for the user. (larger task)
+- [ ] Design the file upload layout, style, colors etc... in a comprehensive and detailled way, no implmementations, only creating a verbal visualization of our page and how we can set this up modern 
 - [ ] Implement Supervisor Agent orchestrating other agents through LangGraph
 - [ ] Develop Folder Structure Agent generating hierarchical JSON structure
 - [ ] Create Rules & Configs Agent producing `.eslintrc`, `.prettierrc`, etc.

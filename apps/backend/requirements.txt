@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+langchain
+langgraph
+pydantic
+supabase
+python-dotenv
+pydantic[email]

@@ -1,41 +1,70 @@
-# Project Structure – Rules-generator
+# Project Structure – rules-creating-agents
 
 ## Root Directory Layout
 ```text
 rules-generator/
+├── github/workflows
+├    ├── backend-preview.yml
+├    ├── backend-test.yml
+├    ├── commitlint.yml
+├    ├── frontend-preview.yml
+├    ├── frontend-test.yml
 ├── apps/
-│   ├── frontend/          # Next.js (App Router)
-│   │   ├── app/           # Route segments, layouts, pages
-│   │   ├── components/    # Shared React components
-│   │   ├── features/      # Feature modules (auth, generation, library)
-│   │   ├── hooks/         # React hooks
-│   │   ├── lib/           # Client utilities (supabase client, fetchers)
-│   │   ├── styles/        # Global CSS, Tailwind config
-│   │   └── public/        # Static assets
-│   └── backend/           # FastAPI + LangGraph service
-│       ├── app/
-│       │   ├── api/       # FastAPI routers
-│       │   ├── agents/    # Agent implementations
-│       │   ├── core/      # LangGraph graphs, prompts, tools
-│       │   ├── db/        # Database access layer
-│       │   ├── schemas/   # Pydantic models
-│       │   └── services/  # Business logic helpers
-│       ├── tests/         # Unit tests
+│   ├── backend/
+│   │   ├── app/
+│   │   │   ├── agents/
+│   │   │   ├── api/
+│   │   │   ├── db/
+│   │   │   ├── graph/
+│   │   │   ├── prompts/
+│   │   │   ├── schemas/
+│   │   │   └── services/
+│   │   ├── Dockerfile
+│   │   ├── pyproject.toml
+│   │   └── requirements.txt
+│   └── frontend/
+│       ├── components.json
 │       ├── Dockerfile
-│       └── requirements.txt
-├── packages/
-│   ├── ui/                # Shared component library (shadcn-based)
-│   └── config/            # Shared ESLint, Prettier configs
-├── infra/
-│   ├── env/               # Example `.env` files
-│   └── scripts/           # Dev/CI helper scripts
-├── docs/                  # Generated public documentation site
-├── .github/
-│   ├── workflows/         # CI/CD workflows
-│   └── ISSUE_TEMPLATE/
+│       ├── eslint.config.mjs
+│       ├── next.config.ts
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── public/
+│       │   ├── file.svg
+│       │   ├── globe.svg
+│       │   ├── next.svg
+│       │   ├── vercel.svg
+│       │   └── window.svg
+│       ├── README.md
+│       ├── src/
+│       │   ├── app/
+│       │   │   ├── favicon.ico
+│       │   │   ├── globals.css
+│       │   │   ├── layout.tsx
+│       │   │   └── page.tsx
+│       │   └── lib/
+│       │       └── utils.ts
+│       └── tsconfig.json
+├── CODING_STANDARDS.md
 ├── docker-compose.yml
+├── Docs/
+│   ├── Implementation.md
+│   ├── project_structure.md
+│   └── UI_UX_doc.md
+├── infra/
+│   ├── env/
+│   └── scripts/
+├── package.json
+├── packages/
+│   ├── config/
+│   └── ui/
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── PRD.md
 ├── README.md
-└── LICENSE
+└── supabase/
+    └── migrations/
+        └── 1_initial_schema.sql
 ```
 
 ## Detailed Structure

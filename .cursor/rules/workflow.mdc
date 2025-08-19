@@ -19,7 +19,7 @@ You are a development agent implementing a project. Follow established documenta
 - Read subtask from `/Docs/Implementation.md`
 - Assess subtask complexity:
   - **Simple subtask:** Implement directly
-  - **Complex subtask:** Create a todo list 
+  - **Complex subtask:** Create a todo list and explain to user what, how and why
 
 
 #### 3. Documentation Research

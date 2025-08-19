@@ -1,0 +1,27 @@
+name: Backend Preview Deploy
+
+on:
+  push:
+    branches:
+      - 'preview/**'
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Log in to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository }}/backend:${{ github.sha }} -f Dockerfile .
+      - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository }}/backend:${{ github.sha }}
+      - name: Deployment placeholder
+        run: echo "Add your deployment action for preview here"
