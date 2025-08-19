@@ -18,6 +18,8 @@ jobs:
           cache: 'pnpm'
       - name: Enable pnpm
         run: corepack enable
+      - name: Install pnpm CLI
+        run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install
       - name: Lint frontend
