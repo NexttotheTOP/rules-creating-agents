@@ -16,10 +16,9 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
-      - name: Enable pnpm
-        run: corepack enable
-      - name: Install pnpm CLI
-        run: npm install -g pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install dependencies
         run: pnpm install
       - name: Lint frontend
