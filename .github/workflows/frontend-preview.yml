@@ -2,11 +2,11 @@ name: Frontend Preview Deploy
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   push:
-    branches: ["preview/**"]
+    branches: ['preview/**']
     paths-ignore:
-      - "README.md"
+      - 'README.md'
   workflow_dispatch:
 
 jobs:

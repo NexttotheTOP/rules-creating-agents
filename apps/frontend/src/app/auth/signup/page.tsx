@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Input } from 'ui/input';
-import { Button } from 'ui/button';
-import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+// import Link from 'next/link';
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');
@@ -60,9 +60,9 @@ export default function SignupPage() {
         </form>
         <p className="mt-6 text-sm text-center text-gray-600">
           Already have an account?{' '}
-          <Link href="/auth/login" className="font-medium text-blue-500 hover:underline">
+          {/* <Link href="/auth/login" className="font-medium text-blue-500 hover:underline">
             Log in
-          </Link>
+          </Link> */}
         </p>
       </div>
     </div>

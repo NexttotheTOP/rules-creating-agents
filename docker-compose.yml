@@ -9,7 +9,7 @@ services:
     volumes:
       - ./apps/backend:/app
     ports:
-      - "8000:8000"
+      - '8000:8000'
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
   frontend:
@@ -21,7 +21,7 @@ services:
       - ./apps/frontend:/app
       - /app/node_modules
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       - backend
     environment:
